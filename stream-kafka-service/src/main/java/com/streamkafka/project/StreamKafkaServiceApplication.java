@@ -4,12 +4,12 @@ import com.streamkafka.project.config.StreamKafkaServiceConfigData;
 import com.streamkafka.project.runner.StreamRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
-// In modern java , we use Slf4j instead of loggerFactory and using constructor /field (@Autowired)injection
+// In modern java , we use slf4j instead of loggerFactory and using constructor /field (@Autowired)injection
 @SpringBootApplication
 public class StreamKafkaServiceApplication implements CommandLineRunner {
 
@@ -20,6 +20,7 @@ public class StreamKafkaServiceApplication implements CommandLineRunner {
 
     // Constructor injection
     private final StreamKafkaServiceConfigData streamKafkaServiceConfigData;
+
     public StreamKafkaServiceApplication(StreamKafkaServiceConfigData configData,
                                          StreamRunner runner) {
         this.streamKafkaServiceConfigData = configData;
@@ -67,7 +68,6 @@ public class StreamKafkaServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //System.out.println("App Starts...");
         LOG.info("App Starts.....");
         LOG.info(streamKafkaServiceConfigData.getImpKeywords().toString());
         streamRunner.start(); // start listening Twitter messages continuously for us

@@ -15,4 +15,8 @@ import lombok.*;
 @ConfigurationProperties(prefix = "stream-kafka-service")
 public class StreamKafkaServiceConfigData {
       private List<String> impKeywords;
+      private Boolean enableMockTweets;
+      private Long mockSleepMs;
+      private Integer mockMinTweetLength;
+      private Integer mockMaxTweetLength;
 }

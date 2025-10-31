@@ -21,6 +21,5 @@ public class StreamKafkaStatusListener extends StatusAdapter {
     @Override
     public void onStatus(Status status){
         LOG.info("Twitter status with text {}", status.getText());
-
     }
 }
