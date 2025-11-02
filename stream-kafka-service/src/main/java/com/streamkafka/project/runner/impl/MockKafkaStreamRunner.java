@@ -1,6 +1,6 @@
 package com.streamkafka.project.runner.impl;
 
-import com.streamkafka.project.config.StreamKafkaServiceConfigData;
+import com.streamkafka.config.StreamKafkaServiceConfigData;
 import com.streamkafka.project.exceptions.StreamKafkaServiceException;
 import com.streamkafka.project.listener.StreamKafkaStatusListener;
 import com.streamkafka.project.runner.StreamRunner;

@@ -1,6 +1,6 @@
 package com.streamkafka.project;
 
-import com.streamkafka.project.config.StreamKafkaServiceConfigData;
+import com.streamkafka.config.StreamKafkaServiceConfigData;
 import com.streamkafka.project.runner.StreamRunner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +11,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 // In modern java , we use slf4j instead of loggerFactory and using constructor /field (@Autowired)injection
 @SpringBootApplication
+@ComponentScan(basePackages = {
+        "com.streamkafka.config",
+        "com.streamkafka.project"
+})
 public class StreamKafkaServiceApplication implements CommandLineRunner {
 
     // Here we are using LoggerFactory as it will be used to use application.properties configData

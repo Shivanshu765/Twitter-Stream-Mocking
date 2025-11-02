@@ -15,6 +15,7 @@
 	<description>Microservices with Kafka project for Spring Boot</description>
     <modules>
         <module>stream-kafka-service</module>
+        <module>app-config-data</module>
     </modules>
 
     <!--setting up multi-module project in which multiple modules are organized under a single parent project-->
@@ -31,6 +32,12 @@
 
 	<dependencyManagement>
         <dependencies>
+            <!-- LOCAL -->
+            <dependency>
+                <groupId>com.microservices.project</groupId>
+                <artifactId>app-config-data</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
@@ -82,6 +89,16 @@
                     <version>3.14.1</version>
                     <configuration>
                         <release>8</release>
+                        <!-- annotationProcessorPaths tells compiler which jars to run as annotation processors
+                         during Maven compile-->
+                        <!-- Lombok is added here for microservices architecture -->
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
                     </configuration>
                 </plugin>
             </plugins>
